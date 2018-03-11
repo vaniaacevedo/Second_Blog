@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title></title>
-</head>
-<body>
-	<h1>{{title}}</h1>
+{% extends "base.html" %}
 
-	{{instance.title}}</br>
-	{{instance.content}}</br>
-	{{instance.timestamp}}</br>
-	{{instance.updated}}</br>
-	{{instance.pk}}</br>
+{% block head_title %}
+{{ instance.title }} | {{ block.super }}
+{% endblock head_title %}
 
-</body>
-</html>
+{% block content %}
+
+	<div class="col-sm-8 col-sm-offset-2">
+		<h2>{{title}}<small> {{instance.timestamp}}</small></h2>
+		{{instance.content | linebreaks }}</br>
+	</div>
+
+{% endblock content %}	
+		
+
