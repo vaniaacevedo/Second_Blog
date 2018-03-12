@@ -9,6 +9,13 @@
 	<link rel="stylesheet"  href="{% static 'css/base.css' %}">
 </head>
 <body>
+	<nav class="navbar navbar-inverse">
+  		<div class="container">
+  			<div class="navbar-header">
+      			<a class="navbar-brand" href="{% url 'posts:list' %}">Travel Blog</a>
+    		</div>
+  		</div>
+	</nav>
 	{% include 'messages_display.html' %}
 	<div class="container">
 		{% block content %}

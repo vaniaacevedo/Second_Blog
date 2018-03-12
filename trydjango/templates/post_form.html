@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% block head_title %}{{ instance.title }} | {{ block.super }}{% endblock head_title %}
+
 
 {% block content %}
 <div class="col-sm-8 col-sm-offset-2">
 	<h1>Form</h1>
-	<form method="POST">
+	<form method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form.as_p}}
 		<input type="submit" class="btn btn-primary" value="Create Post">
