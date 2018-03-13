@@ -1,14 +1,19 @@
 {% extends "base.html" %}
 
+
 {% block content %}
 
 	<div class="col-sm-8 col-sm-offset-2">
 		{% if instance.image %}
 		<img src="{{ instance.image.url }}" class="img-responsive">
 		{% endif %}
-		<h2>{{title}}<small> {{instance.timestamp}}</small></h2>
+		<h2>{{title}}<small>{% if instance.draft %}<span style='color:red;'>Draft</span>{% endif %}{{instance.publish}}</small></h2>
+		{% if instance.user.get_full_name %}
+		<p><strong>Author: {{ instance.user.get_full_name }}</strong></p>
+		{% endif %}
+		<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div><hr>
 		{{instance.content | linebreaks }}</br>
-		<a href=""></a>
+		<div class="fb-comments" data-href="{{ request.build_absolute_url }}" data-numposts="5"></div>
 	</div>
 
 {% endblock content %}	

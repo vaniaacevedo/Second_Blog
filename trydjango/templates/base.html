@@ -9,13 +9,23 @@
 	<link rel="stylesheet"  href="{% static 'css/base.css' %}">
 </head>
 <body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+  	var js, fjs = d.getElementsByTagName(s)[0];
+  	if (d.getElementById(id)) return;
+  	js = d.createElement(s); js.id = id;
+  	js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
+  	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
 	<nav class="navbar navbar-inverse">
   		<div class="container">
   			<div class="navbar-header">
       			<a class="navbar-brand" href="{% url 'posts:list' %}">Travel Blog</a>
     		</div>
-  		</div>
-	</nav>
+    	</div>
+    </nav>
+
 	{% include 'messages_display.html' %}
 	<div class="container">
 		{% block content %}
